@@ -2,11 +2,7 @@ package ltd.guimc.wikisearch.fetcher
 
 import ltd.guimc.wikisearch.PluginMain
 import org.json.JSONArray
-import org.openqa.selenium.By
-import org.openqa.selenium.Dimension
-import org.openqa.selenium.OutputType
-import org.openqa.selenium.TimeoutException
-import org.openqa.selenium.remote.Command
+import org.openqa.selenium.*
 import java.net.URI
 import java.net.URLEncoder
 import java.net.http.HttpClient
@@ -37,9 +33,8 @@ object MoegirlFetcher {
         } catch (_: TimeoutException) {
         }
 
-        val commandExcutor = driver.commandExecutor
         try {
-            commandExcutor.execute(Command(driver.sessionId, getRemoveRemoveableElementCommand()))
+            (driver as JavascriptExecutor).executeScript(getRemoveRemoveableElementCommand())
         } catch (_: TimeoutException) {
         }
 
