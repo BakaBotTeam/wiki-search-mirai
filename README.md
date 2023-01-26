@@ -14,5 +14,5 @@
 2. 配置Mirai Selenium Plugin插件
     1. [修改Mirai Selenium Plugin插件的配置文件](https://github.com/cssxsh/mirai-selenium-plugin#%E9%85%8D%E7%BD%AE) `config/xyz.cssxsh.mirai.plugin.mirai-selenium-plugin/MiraiSeleniumConfig.yml`
        and `config/xyz.cssxsh.mirai.plugin.mirai-selenium-plugin/MiraiSeleniumConfig.yml`
-    2. 运行机器人 使用 `/selemium firefox` 指令安装浏览器
+    2. 运行机器人 使用 `/selemium chromium` 指令安装浏览器
 3. 享受此插件吧喵~
