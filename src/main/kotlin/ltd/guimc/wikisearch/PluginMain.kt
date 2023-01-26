@@ -6,6 +6,7 @@ import net.mamoe.mirai.console.permission.PermissionService
 import net.mamoe.mirai.console.plugin.jvm.JvmPluginDescription
 import net.mamoe.mirai.console.plugin.jvm.KotlinPlugin
 import net.mamoe.mirai.event.GlobalEventChannel
+import net.mamoe.mirai.event.events.MessageEvent
 import xyz.cssxsh.mirai.selenium.MiraiSeleniumPlugin
 
 object PluginMain : KotlinPlugin(
@@ -29,6 +30,7 @@ object PluginMain : KotlinPlugin(
         logger.info("Wiki Search正在加载的路上了喵~")
         registerPerms()
         registerEvents()
+        MiraiSeleniumPlugin.setup()
         driver
         logger.info("Wiki Search加载好啦喵~")
     }
@@ -44,5 +46,6 @@ object PluginMain : KotlinPlugin(
     }
 
     private fun registerEvents() = GlobalEventChannel.run {
+        subscribeAlways<MessageEvent> { event -> }
     }
 }
