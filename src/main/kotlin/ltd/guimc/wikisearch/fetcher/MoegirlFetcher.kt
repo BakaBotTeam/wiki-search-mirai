@@ -53,11 +53,11 @@ object MoegirlFetcher {
 
     private fun getRemoveRemoveableElementCommand(): String {
         var _str =
-            ";var childs = document.getElementById(\"moe-main-container\").children; for (i=0; i<childs.length; i++) {if (childs[i].classList[0] != \"moe-flexible-container\") { childs[i].remove(); }};"
+            ";document.getElementsByClassName(\"n-modal-container\")[0].remove();var childs = document.getElementById(\"moe-main-container\").children; for (i=0; i<childs.length; i++) {if (childs[i].classList[0] != \"moe-flexible-container\") { childs[i].remove(); }};"
         RemoveableElements.forEach {
             _str += "document.getElementById(\"$it\").remove();"
         }
-        return _str + "document.getElementsByClassName(\"n-modal-container\")[0].remove();"
+        return _str
     }
 
     fun getURL(word: String): String? {
