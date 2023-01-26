@@ -12,7 +12,10 @@ import net.mamoe.mirai.utils.ExternalResource
 object SogouHandler {
     suspend fun onMessage(event: MessageEvent) {
         val subject = event.subject
-        if (!event.sender.permitteeId.hasPermission(PluginMain.blockedPermission)) {
+        if (!event.sender.permitteeId.hasPermission(PluginMain.blockedPermission) || event.sender.permitteeId.hasPermission(
+                PluginMain.adminPermission
+            )
+        ) {
             try {
                 val messageText = event.message.getPlainText()
                 if (messageText.isEmpty()) return

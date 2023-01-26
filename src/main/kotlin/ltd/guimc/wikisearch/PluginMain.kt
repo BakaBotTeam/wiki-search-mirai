@@ -22,6 +22,7 @@ object PluginMain : KotlinPlugin(
     }
 ) {
     lateinit var blockedPermission: Permission
+    lateinit var adminPermission: Permission
     val driver by lazy {
         MiraiSeleniumPlugin.driver()
     }
@@ -45,6 +46,7 @@ object PluginMain : KotlinPlugin(
 
     private fun registerPerms() = PermissionService.INSTANCE.run {
         blockedPermission = register(PermissionId("ltd.guimc.wikisearch", "block"), "屏蔽某人执行百科搜索")
+        adminPermission = register(PermissionId("ltd.guimc.wikisearch", "admin"), "屏蔽某人执行百科搜索")
     }
 
     private fun registerEvents() = GlobalEventChannel.run {
