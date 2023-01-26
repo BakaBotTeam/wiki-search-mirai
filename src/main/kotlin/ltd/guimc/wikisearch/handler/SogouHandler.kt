@@ -49,6 +49,9 @@ object SogouHandler {
 
                     subject.sendImage(imageByteArray.toExternalResource())
                 }
+            } catch (e: NoSuchElementException) {
+                subject.sendMessage("出了一点小故障... 好像你搜的词条不存在?")
+                PluginMain.isUsing = false
             } catch (e: Throwable) {
                 subject.sendMessage("出了一点小故障... $e")
                 e.printStackTrace()

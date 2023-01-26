@@ -8,6 +8,7 @@ import net.mamoe.mirai.console.permission.PermitteeId.Companion.permitteeId
 import net.mamoe.mirai.contact.Contact.Companion.sendImage
 import net.mamoe.mirai.event.events.MessageEvent
 import net.mamoe.mirai.utils.ExternalResource.Companion.toExternalResource
+import org.json.JSONException
 
 object MoegirlHandler {
     suspend fun onMessage(event: MessageEvent) {
@@ -50,6 +51,9 @@ object MoegirlHandler {
 
                     subject.sendImage(imageByteArray.toExternalResource())
                 }
+            } catch (e: JSONException) {
+                subject.sendMessage("出了一点小故障... 好像你搜的词条不存在?")
+                PluginMain.isUsing = false
             } catch (e: Throwable) {
                 subject.sendMessage("出了一点小故障... $e")
                 e.printStackTrace()
