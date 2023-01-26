@@ -7,7 +7,7 @@ import net.mamoe.mirai.console.permission.PermissionService.Companion.hasPermiss
 import net.mamoe.mirai.console.permission.PermitteeId.Companion.permitteeId
 import net.mamoe.mirai.contact.Contact.Companion.sendImage
 import net.mamoe.mirai.event.events.MessageEvent
-import net.mamoe.mirai.utils.ExternalResource
+import net.mamoe.mirai.utils.ExternalResource.Companion.toExternalResource
 
 object MoegirlHandler {
     suspend fun onMessage(event: MessageEvent) {
@@ -30,10 +30,10 @@ object MoegirlHandler {
 
                     PluginMain.isUsing = true
                     val imageByteArray =
-                        MoegirlFetcher.fetch(messageText.substring(5)) ?: subject.sendMessage("查询失败了喵...")
+                        MoegirlFetcher.fetch(messageText.substring(5)) ?: throw RuntimeException("查询失败了喵...")
                     PluginMain.isUsing = false
 
-                    subject.sendImage(imageByteArray as ExternalResource)
+                    subject.sendImage(imageByteArray.toExternalResource())
                 } else if (messageText.startsWith("萌娘百科详细 ")) {
                     subject.sendMessage("客官稍等一下喵~ 正在查找你想要的东西...")
 
@@ -44,10 +44,11 @@ object MoegirlHandler {
 
                     PluginMain.isUsing = true
                     val imageByteArray =
-                        MoegirlFetcher.fetch(messageText.substring(7), true) ?: subject.sendMessage("查询失败了喵...")
+                        MoegirlFetcher.fetch(messageText.substring(7), true)
+                            ?: throw RuntimeException("查询失败了喵...")
                     PluginMain.isUsing = false
 
-                    subject.sendImage(imageByteArray as ExternalResource)
+                    subject.sendImage(imageByteArray.toExternalResource())
                 }
             } catch (e: Throwable) {
                 subject.sendMessage("出了一点小故障... $e")
