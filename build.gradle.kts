@@ -15,3 +15,12 @@ repositories {
     }
     mavenCentral()
 }
+
+dependencies {
+    compileOnly("xyz.cssxsh.mirai:mirai-selenium-plugin:2.2.3")
+    implementation("org.json:json:20220924")
+}
+
+mirai {
+    jvmTarget = JavaVersion.VERSION_11
+}
