@@ -6,8 +6,8 @@ plugins {
     id("net.mamoe.mirai-console") version "2.13.2"
 }
 
-group = "org.example"
-version = "0.1.0"
+group = "ltd.guimc.wikisearch"
+version = "0.1.1"
 
 repositories {
     if (System.getenv("CI")?.toBoolean() != true) {
