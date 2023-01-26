@@ -16,3 +16,8 @@
        and `config/xyz.cssxsh.mirai.plugin.mirai-selenium-plugin/MiraiSeleniumConfig.yml`
     2. 运行机器人 使用 `/selemium chromium` 指令安装浏览器
 3. 享受此插件吧喵~
+
+## 指令
+
+* 在搜狗百科上搜索: 百科 <查询内容> (详细搜索: 百科详细 <查询内容>)
+* 在萌娘百科上搜索: 萌娘百科 <查询内容> (详细搜索: 萌娘百科详细 <查询内容>)
