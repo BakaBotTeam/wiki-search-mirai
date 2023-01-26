@@ -37,7 +37,7 @@ object MoegirlFetcher {
 
         try {
             (driver as JavascriptExecutor).executeScript(getRemoveRemoveableElementCommand())
-        } catch (_: TimeoutException) {
+        } catch (_: Throwable) {
         }
 
         val element = driver.findElement(By.id("mw-body"))
