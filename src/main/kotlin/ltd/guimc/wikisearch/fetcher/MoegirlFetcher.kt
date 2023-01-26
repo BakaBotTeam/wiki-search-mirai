@@ -28,7 +28,11 @@ object MoegirlFetcher {
 
     fun fetch(word: String, full: Boolean = false): ByteArray? {
         driver.manage().timeouts().pageLoadTimeout(if (full) 14 else 7, TimeUnit.SECONDS)
-        driver.get(getURL(word) ?: return null)
+
+        try {
+            driver.get(getURL(word) ?: return null)
+        } catch (_: TimeoutException) {
+        }
         driver.findElement(By.id("mwe-popups-svg"))
 
         try {
