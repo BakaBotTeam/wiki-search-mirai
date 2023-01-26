@@ -18,7 +18,7 @@ jobs:
           java-version: 11
           check-latest: true
       - uses: burrunan/gradle-cache-action@v1
-        name: BuildPluginLegacy
+        name: BuildPlugin
         with:
           job-id: jdk11
           arguments: buildPlugin
