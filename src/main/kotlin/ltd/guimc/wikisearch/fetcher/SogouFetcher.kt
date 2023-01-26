@@ -4,7 +4,6 @@ import ltd.guimc.wikisearch.PluginMain
 import org.openqa.selenium.By
 import org.openqa.selenium.Dimension
 import org.openqa.selenium.OutputType
-import java.time.Duration
 
 object SogouFetcher {
     val heightLimit = 9000
@@ -19,7 +18,6 @@ object SogouFetcher {
         driver.findElement(By.xpath("//*[@id=\"searchText\"]")).sendKeys(word)
         driver.findElement(By.xpath("//*[@id=\"enterLemma\"]")).click()
 
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10))
         val element = driver.findElement(By.className("lemma_container"))
 
         if (!full) {

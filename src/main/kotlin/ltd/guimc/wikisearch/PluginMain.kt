@@ -10,6 +10,7 @@ import net.mamoe.mirai.console.plugin.jvm.KotlinPlugin
 import net.mamoe.mirai.event.GlobalEventChannel
 import net.mamoe.mirai.event.events.MessageEvent
 import xyz.cssxsh.mirai.selenium.MiraiSeleniumPlugin
+import java.time.Duration
 
 object PluginMain : KotlinPlugin(
     JvmPluginDescription(
@@ -35,6 +36,7 @@ object PluginMain : KotlinPlugin(
         registerEvents()
         MiraiSeleniumPlugin.setup()
         driver
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10))
         logger.info("Wiki Search加载好啦喵~")
     }
 
