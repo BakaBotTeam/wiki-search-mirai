@@ -4,7 +4,9 @@
 前置插件: [Mirai Selenium Plugin](https://github.com/cssxsh/mirai-selenium-plugin)<br>
 本项目参考Python项目 [KuriYama-mirai524/biki_search](https://github.com/KuriYama-mirai524/bike_search)
 
-建议在Java 11的环境下运行此插件
+本插件中的文本内容都比较奇怪(~~因为汐洛是一只可爱的男孩子喵~~~) 若无法接受请不要使用此插件
+
+**建议在Java 11运行此插件! 其他版本可能出现预期外的问题**
 
 ## 安装教程
 
