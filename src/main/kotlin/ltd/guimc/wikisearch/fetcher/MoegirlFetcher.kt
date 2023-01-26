@@ -17,7 +17,7 @@ import java.util.concurrent.TimeUnit
 object MoegirlFetcher {
     val UserAgent = "Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/109.0"
     val MoegirlApi =
-        "https://zh.moegirl.org.cn/api.php?action=opensearch&format=json&formatversion=2%namespace=0&limit=10&search="
+        "https://zh.moegirl.org.cn/api.php?action=opensearch&format=json&formatversion=2&namespace=0&limit=10&search="
     val RemoveableElements = arrayListOf(
         "moe-global-header", "moe-global-footer", "moe-global-toolbar",
         "moe-open-in-app", "moe-float-toc-container", "moe-global-background",
