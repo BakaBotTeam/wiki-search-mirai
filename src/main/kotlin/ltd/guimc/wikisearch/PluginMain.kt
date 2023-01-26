@@ -1,5 +1,7 @@
 package ltd.guimc.wikisearch
 
+import ltd.guimc.wikisearch.handler.MoegirlHandler
+import ltd.guimc.wikisearch.handler.SogouHandler
 import net.mamoe.mirai.console.permission.Permission
 import net.mamoe.mirai.console.permission.PermissionId
 import net.mamoe.mirai.console.permission.PermissionService
@@ -46,6 +48,6 @@ object PluginMain : KotlinPlugin(
     }
 
     private fun registerEvents() = GlobalEventChannel.run {
-        subscribeAlways<MessageEvent> { event -> }
+        subscribeAlways<MessageEvent> { event -> SogouHandler.onMessage(event); MoegirlHandler.onMessage(event) }
     }
 }

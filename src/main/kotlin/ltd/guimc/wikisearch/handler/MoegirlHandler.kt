@@ -9,7 +9,7 @@ import net.mamoe.mirai.contact.Contact.Companion.sendImage
 import net.mamoe.mirai.event.events.MessageEvent
 import net.mamoe.mirai.utils.ExternalResource
 
-class MoegirlHandler {
+object MoegirlHandler {
     suspend fun onMessage(event: MessageEvent) {
         val subject = event.subject
         if (!event.sender.permitteeId.hasPermission(PluginMain.blockedPermission)) {
