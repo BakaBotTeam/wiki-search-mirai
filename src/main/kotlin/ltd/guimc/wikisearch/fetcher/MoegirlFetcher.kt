@@ -8,6 +8,7 @@ import org.openqa.selenium.OutputType
 import org.openqa.selenium.TimeoutException
 import org.openqa.selenium.remote.Command
 import java.net.URI
+import java.net.URLEncoder
 import java.net.http.HttpClient
 import java.net.http.HttpRequest
 import java.net.http.HttpResponse
@@ -66,7 +67,7 @@ object MoegirlFetcher {
         // TencentWAF f**k u
         val httpClient = HttpClient.newHttpClient()
         val httpRequest = HttpRequest.newBuilder()
-            .uri(URI.create(MoegirlApi + word))
+            .uri(URI.create(MoegirlApi + URLEncoder.encode(word, "UTF-8")))
             .header("User-Agent", UserAgent)
             .header("Referer", "https://zh.moegirl.org.cn/")
             .header("Origin", "https://zh.moegirl.org.cn")

@@ -53,6 +53,7 @@ object MoegirlHandler {
             } catch (e: Throwable) {
                 subject.sendMessage("出了一点小故障... $e")
                 e.printStackTrace()
+                PluginMain.isUsing = false
             }
         }
     }
