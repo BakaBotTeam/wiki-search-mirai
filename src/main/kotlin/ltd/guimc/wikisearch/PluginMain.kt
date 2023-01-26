@@ -6,7 +6,6 @@ import net.mamoe.mirai.console.permission.PermissionService
 import net.mamoe.mirai.console.plugin.jvm.JvmPluginDescription
 import net.mamoe.mirai.console.plugin.jvm.KotlinPlugin
 import net.mamoe.mirai.event.GlobalEventChannel
-import org.openqa.selenium.remote.RemoteWebDriver
 import xyz.cssxsh.mirai.selenium.MiraiSeleniumPlugin
 
 object PluginMain : KotlinPlugin(
@@ -20,26 +19,17 @@ object PluginMain : KotlinPlugin(
     }
 ) {
     lateinit var blockedPermission: Permission
-    lateinit var driver: RemoteWebDriver
+    val driver by lazy {
+        MiraiSeleniumPlugin.driver()
+    }
 
     var isUsing = false
 
-    val selenium: Boolean by lazy {
-        try {
-            MiraiSeleniumPlugin.setup()
-        } catch (exception: NoClassDefFoundError) {
-            logger.error(exception)
-            logger.error("相关类加载失败... 你到底有没有认真看README? (生气)")
-            false
-        }
-    }
-
     override fun onEnable() {
         logger.info("Wiki Search正在加载的路上了喵~")
-        selenium
         registerPerms()
         registerEvents()
-        driver = MiraiSeleniumPlugin.driver()
+        driver
         logger.info("Wiki Search加载好啦喵~")
     }
 
