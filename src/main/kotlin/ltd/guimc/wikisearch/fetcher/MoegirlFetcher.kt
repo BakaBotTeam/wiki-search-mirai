@@ -33,7 +33,7 @@ object MoegirlFetcher {
             driver.get(getURL(word) ?: return null)
         } catch (_: TimeoutException) {
         }
-        driver.findElement(By.id("mwe-popups-svg"))
+        driver.findElement(By.className("n-modal-container"))
 
         try {
             (driver as JavascriptExecutor).executeScript(getRemoveRemoveableElementCommand())
