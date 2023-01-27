@@ -7,7 +7,7 @@ plugins {
 }
 
 group = "ltd.guimc.wikisearch"
-version = "0.1.1"
+version = "0.1.2"
 
 repositories {
     if (System.getenv("CI")?.toBoolean() != true) {

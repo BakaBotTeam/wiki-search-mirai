@@ -16,7 +16,7 @@ object PluginMain : KotlinPlugin(
     JvmPluginDescription(
         id = "ltd.guimc.wikisearch",
         name = "Wiki Search",
-        version = "0.1.1"
+        version = "0.1.2"
     ) {
         author("BakaBotTeam")
         dependsOn("xyz.cssxsh.mirai.plugin.mirai-selenium-plugin")
