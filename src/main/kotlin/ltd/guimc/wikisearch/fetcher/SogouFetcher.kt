@@ -6,7 +6,7 @@ import org.openqa.selenium.Dimension
 import org.openqa.selenium.OutputType
 
 object SogouFetcher {
-    val heightLimit = 9000
+    private const val heightLimit = 9000
 
     val driver
         get() = PluginMain.driver

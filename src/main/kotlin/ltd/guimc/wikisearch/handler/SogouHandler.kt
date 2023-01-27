@@ -8,6 +8,7 @@ import net.mamoe.mirai.console.permission.PermitteeId.Companion.permitteeId
 import net.mamoe.mirai.contact.Contact.Companion.sendImage
 import net.mamoe.mirai.event.events.MessageEvent
 import net.mamoe.mirai.utils.ExternalResource.Companion.toExternalResource
+import org.openqa.selenium.NoSuchElementException
 
 object SogouHandler {
     suspend fun onMessage(event: MessageEvent) {
