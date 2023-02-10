@@ -7,7 +7,6 @@ import net.mamoe.mirai.console.permission.PermissionId
 import net.mamoe.mirai.console.permission.PermissionService
 import net.mamoe.mirai.console.plugin.jvm.JvmPluginDescription
 import net.mamoe.mirai.console.plugin.jvm.KotlinPlugin
-import net.mamoe.mirai.event.GlobalEventChannel
 import net.mamoe.mirai.event.events.MessageEvent
 import net.mamoe.mirai.event.globalEventChannel
 import xyz.cssxsh.mirai.selenium.MiraiSeleniumPlugin
@@ -53,6 +52,9 @@ object PluginMain : KotlinPlugin(
     }
 
     private fun registerEvents() = this.globalEventChannel().run {
-        subscribeAlways<MessageEvent> { event -> SogouHandler.onMessage(event); MoegirlHandler.onMessage(event) }
+        subscribeAlways<MessageEvent> { event ->
+            SogouHandler.onMessage(event)
+            MoegirlHandler.onMessage(event)
+        }
     }
 }
