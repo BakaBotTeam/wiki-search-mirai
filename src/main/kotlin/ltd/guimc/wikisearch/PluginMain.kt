@@ -9,6 +9,7 @@ import net.mamoe.mirai.console.plugin.jvm.JvmPluginDescription
 import net.mamoe.mirai.console.plugin.jvm.KotlinPlugin
 import net.mamoe.mirai.event.GlobalEventChannel
 import net.mamoe.mirai.event.events.MessageEvent
+import net.mamoe.mirai.event.globalEventChannel
 import xyz.cssxsh.mirai.selenium.MiraiSeleniumPlugin
 import java.time.Duration
 
@@ -51,7 +52,7 @@ object PluginMain : KotlinPlugin(
         adminPermission = register(PermissionId("ltd.guimc.wikisearch", "admin"), "屏蔽某人执行百科搜索")
     }
 
-    private fun registerEvents() = GlobalEventChannel.run {
+    private fun registerEvents() = this.globalEventChannel().run {
         subscribeAlways<MessageEvent> { event -> SogouHandler.onMessage(event); MoegirlHandler.onMessage(event) }
     }
 }
