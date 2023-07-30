@@ -1,13 +1,13 @@
 plugins {
-    val kotlinVersion = "1.6.10"
+    val kotlinVersion = "1.9.0"
     kotlin("jvm") version kotlinVersion
     kotlin("plugin.serialization") version kotlinVersion
 
-    id("net.mamoe.mirai-console") version "2.13.2"
+    id("net.mamoe.mirai-console") version "2.15.0"
 }
 
 group = "ltd.guimc.wikisearch"
-version = "0.1.2"
+version = "0.2.0"
 
 repositories {
     if (System.getenv("CI")?.toBoolean() != true) {
@@ -17,8 +17,8 @@ repositories {
 }
 
 dependencies {
-    compileOnly("xyz.cssxsh.mirai:mirai-selenium-plugin:2.2.3")
-    implementation("org.json:json:20220924")
+    compileOnly("xyz.cssxsh.mirai:mirai-selenium-plugin:2.4.0")
+    implementation("org.json:json:20230227")
 }
 
 mirai {
